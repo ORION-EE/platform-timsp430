@@ -64,6 +64,9 @@ env.Append(
         "-Os",
         "-ffunction-sections",  # place each function in its own section
         "-fdata-sections",
+        "-mlarge", # use large memory-model automatically.
+        "-mcode-region=either", 
+        "-mdata-region=either"  
     ],
 
     CXXFLAGS=[
@@ -77,7 +80,10 @@ env.Append(
 
     LINKFLAGS=machine_flags + [
         "-Os",
-        "-Wl,-gc-sections,-u,main"
+        "-Wl,-gc-sections,-u,main",
+        "-mlarge", # use large memory-model automatically.
+        "-mcode-region=either", 
+        "-mdata-region=either" 
     ],
 
     LIBS=["m"],
